@@ -47,6 +47,7 @@ postLocalStorage()
 }
 
 // Form
+// Add new post Creation functionality
 
 if (document.URL.includes("new-post.html")) {
 
