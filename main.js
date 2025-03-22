@@ -1,3 +1,4 @@
+const blogContainer = document.getElementById("blogContainer")
 
 let temp = {
     "Post One": "Lorem ipsum dolor sit amet consectetur adipisicing elit. At nobis quis explicabo tenetur veniam voluptate sequi sit inventore beatae quam.",
@@ -9,16 +10,13 @@ if (!localStorage.getItem("blogPosts")){
     localStorage.setItem("blogPosts", JSON.stringify(temp))
 }
 
-console.log(JSON.parse(localStorage.getItem("blogPosts")))
-const blogContainer = document.getElementById("blogContainer")
-
 function postLocalStorage(){
     let blogPosts = JSON.parse(localStorage.getItem("blogPosts"))
     for (const [title, post] of Object.entries(blogPosts)){
-        console.log(post)
         addPostElement(title, post)
     }
 }
+
 
 function addPostElement(title, post){
     const newLi = document.createElement("li")
@@ -39,5 +37,6 @@ function addPostElement(title, post){
 
     blogContainer.appendChild(newLi)
 }
+
 
 postLocalStorage()
