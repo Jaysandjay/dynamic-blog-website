@@ -50,29 +50,44 @@ postLocalStorage()
 // Form
 
 if (document.URL.includes("new-post.html")) {
+    const postError = document.getElementById("postError")
+    const titleError = document.getElementById("titleError")
+
     document.querySelector("form").onsubmit = function(event) {
         event.preventDefault()
-        let newTitle = document.getElementById("newTitle")
-        let newPost = document.getElementById("newPost")
-        console.log("fired")
+
+        titleError.style.display = "none"
+        postError.style.display = "none"
+
+        let newTitle = document.getElementById("newTitle").value
+        let newPost = document.getElementById("newPost").value
+
+        titlevalidated = validateTitle(newTitle)
+        postvalidated = validatePost(newPost)
+
+        if(titlevalidated && postvalidated){
+            console.log("post")
+        }
     }
-    
+
 
     function validateTitle(title) {
         if(title.trim() === ""){
-            console.log("needTitle")
+            titleError.style.display = "block"
             return false
         } else {
+            titleError.style.display = "none"
             return true
         }
     }
 
 
     function validatePost(post) {
-        if(title.trim() === ""){
-            console.log("need post")
+        if(post.trim() === ""){
+            postError.style.display = "block"
             return false
         } else {
+            postError.style.display = "none"
             return true
         }
     }
