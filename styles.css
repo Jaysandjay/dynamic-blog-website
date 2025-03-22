@@ -58,6 +58,7 @@ input:hover{
 
 .titleInput{
     margin-top: 30px;
+    margin-bottom: ;
     height: 60px;
 }
 
@@ -87,4 +88,15 @@ input:hover{
 
 button:hover{
     transform: scale(1.05);   
+}
+
+.errorMessage{
+    display: none;
+    padding-top: 10px;
+    text-align: center;
+    color: red;
+    font-size: 13px;
+    margin: auto;
+    width: 700px;
+    height: 20px;
 }

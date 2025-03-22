@@ -52,6 +52,29 @@ postLocalStorage()
 if (document.URL.includes("new-post.html")) {
     document.querySelector("form").onsubmit = function(event) {
         event.preventDefault()
+        let newTitle = document.getElementById("newTitle")
+        let newPost = document.getElementById("newPost")
         console.log("fired")
     }
+    
+
+    function validateTitle(title) {
+        if(title.trim() === ""){
+            console.log("needTitle")
+            return false
+        } else {
+            return true
+        }
+    }
+
+
+    function validatePost(post) {
+        if(title.trim() === ""){
+            console.log("need post")
+            return false
+        } else {
+            return true
+        }
+    }
+
 }
