@@ -2,16 +2,21 @@
 html, body{
     height: 100%;
     font-family: "Inter", sans-serif;
+    background-color: rgb(243, 243, 248);
 }
 
+h1{
+    margin: 40px;
+}
 .blog-posts{
-    border: solid 5px;
-    margin: auto;
+    border: solid 3px rgb(16, 16, 236);
+    margin: 20px auto;
     display: flex;
     flex-direction: column;
     width: 700px;
     border-radius: 25px;
     padding: 15px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px
 }
 
 .title {
