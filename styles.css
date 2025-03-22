@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Winky+Sans:ital,wght@0,300..900;1,300..900&display=swap');
+html, body{
+    height: 100%;
+    font-family: "Inter", sans-serif;
+    background-color: rgb(243, 243, 248);
+}
+
+h1{
+    margin: 40px;
+}
+.blog-posts{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    width: 700px; 
+}
+
+.blog-post{
+    list-style: none;
+    border-radius: 25px;
+    padding: 15px;
+    margin: 15px;
+    border: solid 3px rgb(16, 16, 236);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px
+}
+
+.title {
+    margin: 5px;
+
+}
