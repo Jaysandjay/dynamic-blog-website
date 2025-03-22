@@ -5,13 +5,9 @@ if (document.URL.includes("index.html")){
 
 const blogContainer = document.getElementById("blogContainer")
 
-let temp = {
-    "Start a Blog!": "Press the Add Post button to create a new post",
-    }
-
 if (!localStorage.getItem("blogPosts")){
-    localStorage.setItem("blogPosts", JSON.stringify(temp))
-}
+    addPostElement("Start a Blog!", "Press the Add Post button to create a new post" )
+} 
 
 function postLocalStorage(){
     let blogPosts = JSON.parse(localStorage.getItem("blogPosts"))
