@@ -1,12 +1,13 @@
 // Add Homepage with blog listing
 
+if (document.URL.includes("index.html")){
+
+
 const blogContainer = document.getElementById("blogContainer")
 
 let temp = {
-    "Post One": "Lorem ipsum dolor sit amet consectetur adipisicing elit. At nobis quis explicabo tenetur veniam voluptate sequi sit inventore beatae quam.",
-    "Post Two": "Lorem ipsum dolor sit amet consectetur adipisicing elit. At nobis quis explicabo tenetur veniam voluptate sequi sit inventore beatae quam.",
-    "Post Three": "Lorem ipsum dolor sit amet consectetur adipisicing elit. At nobis quis explicabo tenetur veniam voluptate sequi sit inventore beatae quam.",
-}
+    "Start a Blog!": "Press the Add Post button to create a new post",
+    }
 
 if (!localStorage.getItem("blogPosts")){
     localStorage.setItem("blogPosts", JSON.stringify(temp))
@@ -42,3 +43,72 @@ function addPostElement(title, post){
 
 
 postLocalStorage()
+
+}
+
+// Form
+// Add new post Creation functionality
+
+if (document.URL.includes("new-post.html")) {
+
+    const successMessage = document.getElementById("success")
+    const postError = document.getElementById("postError")
+    const titleError = document.getElementById("titleError")
+
+    successMessage.style.display = "none"
+
+    document.querySelector("form").onsubmit = function(event) {
+        event.preventDefault()
+
+        titleError.style.display = "none"
+        postError.style.display = "none"
+
+        let newTitle = document.getElementById("newTitle").value
+        let newPost = document.getElementById("newPost").value
+
+        titlevalidated = validateTitle(newTitle)
+        postvalidated = validatePost(newPost)
+
+        if(titlevalidated && postvalidated){
+            post(newTitle, newPost)
+            successMessage.style.display = "block"
+        }
+    }
+
+
+    function validateTitle(title) {
+        if(title.trim() === ""){
+            titleError.style.display = "block"
+            return false
+        } else {
+            titleError.style.display = "none"
+            return true
+        }
+    }
+
+
+    function validatePost(post) {
+        if(post.trim() === ""){
+            postError.style.display = "block"
+            return false
+        } else {
+            postError.style.display = "none"
+            return true
+        }
+    }
+
+
+    function post(title, post) {
+        if (!localStorage.getItem("blogPosts")){
+            let firstPost = {}
+            firstPost[title] = post
+            localStorage.setItem("blogPosts", JSON.stringify(firstPost))
+        }else {
+            let blogPosts = JSON.parse(localStorage.getItem("blogPosts"))
+            blogPosts[title] = post
+            localStorage.setItem("blogPosts", JSON.stringify(blogPosts))
+        }
+    }
+
+
+}
