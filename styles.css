@@ -65,3 +65,26 @@ input:hover{
     text-align: start;
     height: 300px;
 }
+
+.buttonContainer{
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.buttonContainer button{
+    font-family: "Inter", sans-serif;
+    border-radius: 15px;
+    background-color: rgb(16, 16, 236, 0.8);
+    color: white;
+    font-size: 20px;
+    width: 150px;
+    height: 80px;
+    transition: transform .2s;
+    cursor: pointer;
+}
+
+button:hover{
+    transform: scale(1.05);   
+}
