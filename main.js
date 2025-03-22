@@ -4,6 +4,7 @@ if (document.URL.includes("index.html")){
 
 
 const blogContainer = document.getElementById("blogContainer")
+let index = 0
 
 if (!localStorage.getItem("blogPosts")){
     addPostElement("Start a Blog!", "Press the Add Post button to create a new post" )
@@ -21,6 +22,7 @@ function addPostElement(title, post){
     const newLi = document.createElement("li")
     const newH1 = document.createElement("h2")
     const newP = document.createElement("p")
+    const newButton = document.createElement("button")
 
     const titleContent = document.createTextNode(title)
     const postContent = document.createTextNode(post)
@@ -29,10 +31,14 @@ function addPostElement(title, post){
     newP.appendChild(postContent)
     newLi.appendChild(newH1)
     newLi.appendChild(newP)
+    newLi.appendChild(newButton)
+
 
     newLi.classList.add("blog-post")
     newH1.classList.add("title")
     newP.classList.add("post")
+    newButton.classList.add("edit")
+    newButton.innerHTML = "Edit"
 
     blogContainer.appendChild(newLi)
 }
