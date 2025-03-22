@@ -2,18 +2,24 @@
 
 if (document.URL.includes("index.html")){
 
-
 const blogContainer = document.getElementById("blogContainer")
-let index = 0
 
 if (!localStorage.getItem("blogPosts")){
-    addPostElement("Start a Blog!", "Press the Add Post button to create a new post" )
-} 
+    const starter = {
+        id: 0,
+        title: "Start a Blog",
+        post: "Press the Add Post button to create a new post" 
+    }
+    localStorage.setItem("blogPosts", [])
+    addPostElement(starter.title, starter.post)
+} else{
+    postLocalStorage()
+}
 
 function postLocalStorage(){
-    let blogPosts = JSON.parse(localStorage.getItem("blogPosts"))
-    for (const [title, post] of Object.entries(blogPosts)){
-        addPostElement(title, post)
+    for(const entry of (JSON.parse(localStorage.getItem("blogPosts")))){
+
+        addPostElement(entry.title, entry.post)
     }
 }
 
@@ -43,9 +49,6 @@ function addPostElement(title, post){
     blogContainer.appendChild(newLi)
 }
 
-
-postLocalStorage()
-
 }
 
 // Form
@@ -53,6 +56,12 @@ postLocalStorage()
 
 if (document.URL.includes("new-post.html")) {
 
+    // if (!localStorage.getItem("blogPosts")){
+    //      index = 0
+    // } else{
+    //     index = JSON.parse(localStorage.getItem("blogPosts")).length 
+    // }
+    
     const successMessage = document.getElementById("success")
     const postError = document.getElementById("postError")
     const titleError = document.getElementById("titleError")
@@ -100,14 +109,26 @@ if (document.URL.includes("new-post.html")) {
     }
 
 
+
     function post(title, post) {
+        let index = 0
+        if(localStorage.getItem("blogPosts")){
+            index = JSON.parse(localStorage.getItem("blogPosts")).length
+        }
+        
+        let newPost = {}
+        newPost.id = index
+        newPost.title = title
+        newPost.post = post
+
         if (!localStorage.getItem("blogPosts")){
-            let firstPost = {}
-            firstPost[title] = post
+            console.log("Empty")
+            let firstPost = []
+            firstPost.push(newPost)
             localStorage.setItem("blogPosts", JSON.stringify(firstPost))
         }else {
             let blogPosts = JSON.parse(localStorage.getItem("blogPosts"))
-            blogPosts[title] = post
+            blogPosts.push(newPost)
             localStorage.setItem("blogPosts", JSON.stringify(blogPosts))
         }
     }
