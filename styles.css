@@ -100,3 +100,36 @@ button:hover{
     width: 700px;
     height: 20px;
 }
+
+.successMessage {
+    box-sizing: border-box;
+    border: solid 3px rgb(16, 16, 236);
+    border-radius: 15px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 400px;
+    padding: 20px;
+    text-align: center;
+    font-size: 20px;
+    background-color: rgb(243, 243, 248);
+}
+
+.successMessage p{
+    padding-top: 20px;
+    padding-bottom: 15px;
+}
+
+.msgButton {
+    color: white;
+    font-family: "Inter", sans-serif;
+    font-size: 25px;
+    font-weight: 500;
+    border-radius: 15px;
+    height: 80px;
+    width: 300px;
+    cursor: pointer;
+    background-color: rgb(16, 16, 236, 0.8);
+}
