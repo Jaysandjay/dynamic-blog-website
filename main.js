@@ -50,9 +50,11 @@ postLocalStorage()
 
 if (document.URL.includes("new-post.html")) {
 
-
+    const successMessage = document.getElementById("success")
     const postError = document.getElementById("postError")
     const titleError = document.getElementById("titleError")
+
+    successMessage.style.display = "none"
 
     document.querySelector("form").onsubmit = function(event) {
         event.preventDefault()
@@ -68,7 +70,7 @@ if (document.URL.includes("new-post.html")) {
 
         if(titlevalidated && postvalidated){
             post(newTitle, newPost)
-            console.log("post")
+            successMessage.style.display = "block"
         }
     }
 
@@ -107,5 +109,5 @@ if (document.URL.includes("new-post.html")) {
         }
     }
 
-    
+
 }
