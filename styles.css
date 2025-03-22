@@ -12,9 +12,7 @@ h1{
     margin: auto;
     display: flex;
     flex-direction: column;
-    width: 700px;
-    
-  
+    width: 700px; 
 }
 
 .blog-post{
