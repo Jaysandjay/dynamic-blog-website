@@ -1,5 +1,7 @@
 // Add Homepage with blog listing
 
+if (document.URL.includes("index.html")){
+
 const blogContainer = document.getElementById("blogContainer")
 
 let temp = {
@@ -42,3 +44,14 @@ function addPostElement(title, post){
 
 
 postLocalStorage()
+
+}
+
+// Form
+
+if (document.URL.includes("new-post.html")) {
+    document.querySelector("form").onsubmit = function(event) {
+        event.preventDefault()
+        console.log("fired")
+    }
+}
