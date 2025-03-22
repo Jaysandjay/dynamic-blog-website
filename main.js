@@ -1,3 +1,5 @@
+// Add Homepage with blog listing
+
 const blogContainer = document.getElementById("blogContainer")
 
 let temp = {
