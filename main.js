@@ -1,7 +1,7 @@
 // Add Homepage with blog listing
 
-if (document.URL.includes("index.html")){
-
+function homePage(){
+localStorage.clear()
 const blogContainer = document.getElementById("blogContainer")
 
 if (!localStorage.getItem("blogPosts")){
@@ -11,33 +11,38 @@ if (!localStorage.getItem("blogPosts")){
         post: "Press the Add Post button to create a new post" 
     }
     localStorage.setItem("blogPosts", [])
-    addPostElement(starter.title, starter.post)
+    addPostElement(starter.id, starter.title, starter.post)
 } else{
     postLocalStorage()
 }
 
 function postLocalStorage(){
     for(const entry of (JSON.parse(localStorage.getItem("blogPosts")))){
-
-        addPostElement(entry.title, entry.post)
+        addPostElement(entry.id, entry.title, entry.post)
     }
 }
 
 
-function addPostElement(title, post){
+function addPostElement(id, title, post){
     const newLi = document.createElement("li")
     const newH1 = document.createElement("h2")
     const newP = document.createElement("p")
     const newButton = document.createElement("button")
+    const newA = document.createElement("a")
 
     const titleContent = document.createTextNode(title)
     const postContent = document.createTextNode(post)
     
     newH1.appendChild(titleContent)
     newP.appendChild(postContent)
+
     newLi.appendChild(newH1)
     newLi.appendChild(newP)
-    newLi.appendChild(newButton)
+
+    newA.href = `post/${id}`
+    newA.appendChild(newButton)
+    newLi.appendChild(newA)
+    
 
 
     newLi.classList.add("blog-post")
@@ -49,12 +54,18 @@ function addPostElement(title, post){
     blogContainer.appendChild(newLi)
 }
 
+
+
+
+
+
+
 }
 
 // Form
 // Add new post Creation functionality
 
-if (document.URL.includes("new-post.html")) {
+function newPost() {
 
     // if (!localStorage.getItem("blogPosts")){
     //      index = 0
