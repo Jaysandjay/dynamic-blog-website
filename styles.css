@@ -1,15 +1,42 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Winky+Sans:ital,wght@0,300..900;1,300..900&display=swap');
 html, body{
-    height: 100%;
+    min-height: 10vh;
+    min-width: 100vw;
     font-family: "Inter", sans-serif;
     background-color: rgb(243, 243, 248);
 }
 
 h1{
-    margin: 40px;
+    position: fixed;
+    top: 10px;
+    left: 40px;
+    width: fit-content;
+    height:fit-content;
 }
+
+.newPostButton{
+    box-sizing: border-box;
+    position: fixed;
+    top: 130px;
+    left: 60px;
+    background-color:  rgb(16, 16, 236);
+    height: 80px;
+    width: 150px;
+    font-size: 20px;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    border-radius: 50px; 
+    padding: 10px 20px; 
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
 .blog-posts{
     margin: auto;
+    padding-top: 40px;
     display: flex;
     flex-direction: column;
     width: 700px; 
