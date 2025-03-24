@@ -235,15 +235,15 @@ function editPost(){
     }
 
     // Delete blog
-    deleteButton.addEventListener("click",(e) => {
-        e.preventDefault()
-        const index = blogs.findIndex(blog => blog.id === postId)
-        blogs.splice(index, 1)
-        localStorage.setItem("blogPosts", JSON.stringify(blogs))
-        messageMethod.innerHTML = "Deleted"
-        successMessage.style.display = "block"
-        disableButtons()
-    })
+    // deleteButton.addEventListener("click",(e) => {
+    //     e.preventDefault()
+    //     const index = blogs.findIndex(blog => blog.id === postId)
+    //     blogs.splice(index, 1)
+    //     localStorage.setItem("blogPosts", JSON.stringify(blogs))
+    //     messageMethod.innerHTML = "Deleted"
+    //     successMessage.style.display = "block"
+    //     disableButtons()
+    // })
 
     // Go Home Button
     homeButton.addEventListener("click", (e) => {
