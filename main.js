@@ -3,14 +3,14 @@
 function homePage(){
 const blogContainer = document.getElementById("blogContainer")
 
-if (!localStorage.getItem("blogPosts")){
+if (!localStorage.getItem("blogPosts") || JSON.parse(localStorage.getItem("blogPosts")).length === 0){
     const starter = {
-        id: 0,
+        id: "starter",
         title: "Start a Blog",
         post: "Press the Add Post button to create a new post" 
     }
     localStorage.setItem("blogPosts", [])
-    addPostElement(starter.id, starter.title, starter.post)
+    addPostElement(starter.id, starter.title, starter.post, false)
 } else{
     postLocalStorage()
 }
@@ -22,7 +22,7 @@ function postLocalStorage(){
 }
 
 
-function addPostElement(id, title, post){
+function addPostElement(id, title, post, button=true){
     const newLi = document.createElement("li")
     const newH1 = document.createElement("h2")
     const newP = document.createElement("p")
@@ -39,16 +39,21 @@ function addPostElement(id, title, post){
     newLi.appendChild(newP)
 
     newA.href = `post.html?id=${id}`
-    newA.appendChild(newButton)
     newLi.appendChild(newA)
     
-
 
     newLi.classList.add("blog-post")
     newH1.classList.add("title")
     newP.classList.add("post")
-    newButton.classList.add("edit")
-    newButton.innerHTML = "Edit"
+    
+
+    // button
+    if(button){
+        newA.appendChild(newButton)
+        newButton.classList.add("edit")
+        newButton.innerHTML = "Edit"   
+    }
+    
 
     blogContainer.appendChild(newLi)
 }
@@ -234,16 +239,16 @@ function editPost(){
         disableButtons()
     }
 
-    // Delete blog
-    // deleteButton.addEventListener("click",(e) => {
-    //     e.preventDefault()
-    //     const index = blogs.findIndex(blog => blog.id === postId)
-    //     blogs.splice(index, 1)
-    //     localStorage.setItem("blogPosts", JSON.stringify(blogs))
-    //     messageMethod.innerHTML = "Deleted"
-    //     successMessage.style.display = "block"
-    //     disableButtons()
-    // })
+    // Delete blog button
+    deleteButton.addEventListener("click",(e) => {
+        e.preventDefault()
+        const index = blogs.findIndex(blog => blog.id === postId)
+        blogs.splice(index, 1)
+        localStorage.setItem("blogPosts", JSON.stringify(blogs))
+        messageMethod.innerHTML = "Deleted"
+        successMessage.style.display = "block"
+        disableButtons()
+    })
 
     // Go Home Button
     homeButton.addEventListener("click", (e) => {
