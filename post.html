@@ -14,7 +14,7 @@
         <input type="text" id="newPost" class="postInput" placeholder="Post">
         <div class="buttonContainer">
             <button type="submit">Save</button>
-            <button class="delete" type="button">Delete</button>
+            <button id="delete" class="delete" type="button">Delete</button>
             <button id="goHome" type="button">Exit</button>
         </div>
     </form>
@@ -24,7 +24,7 @@
     <div id="success" class="successMessage">
         <h2>Congratulations!</h2>
         <p class="message">
-            Your blog has been Edited!
+            Your blog has been <span id="method"></span>!
         </p>
         <p>Click below to go back to your blog posts!</p>
         <a href="/index.html">

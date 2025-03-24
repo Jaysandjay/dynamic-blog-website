@@ -172,6 +172,8 @@ function editPost(){
     const postError = document.getElementById("postError")
     const titleError = document.getElementById("titleError")
     const homeButton = document.getElementById("goHome")
+    const deleteButton = document.getElementById("delete")
+    const messageMethod = document.getElementById("method")
 
     successMessage.style.display = "none"
 
@@ -194,7 +196,6 @@ function editPost(){
 
         if(titlevalidated && postvalidated){
             replace(newTitle, newPost)
-            successMessage.style.display = "block"
         }
     }
 
@@ -220,12 +221,29 @@ function editPost(){
         }
     }
 
+    // replace blog
     function replace(title, post) {
-        console.log("REPLACE")
         const index = blogs.findIndex(blog => blog.id === postId)
         blogs[index].title = title
         blogs[index].post = post
         localStorage.setItem("blogPosts", JSON.stringify(blogs))
-
+        messageMethod.innerHTML = "Edited"
+        successMessage.style.display = "block"
     }
+
+    // Delete blog
+    deleteButton.addEventListener("click",(e) => {
+        e.preventDefault()
+        const index = blogs.findIndex(blog => blog.id === postId)
+        blogs.splice(index, 1)
+        localStorage.setItem("blogPosts", JSON.stringify(blogs))
+        messageMethod.innerHTML = "Deleted"
+        successMessage.style.display = "block"
+    })
+
+    // Go Home Button
+    homeButton.addEventListener("click", (e) => {
+        e.preventDefault()
+        window.location.href = "index.html"
+    })
 }
