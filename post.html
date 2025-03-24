@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <script src="main.js"></script>
     <title>Post</title>
 </head>
 <body>
@@ -12,8 +13,9 @@
         <input type="text" id="newTitle" class="titleInput" placeholder="Title">
         <input type="text" id="newPost" class="postInput" placeholder="Post">
         <div class="buttonContainer">
-            <button type="submit">Post</button>
-            <button>Exit</button>
+            <button type="submit">Save</button>
+            <button class="delete" type="button">Delete</button>
+            <button type="button">Exit</button>
         </div>
     </form>
     <p id="postError" class="errorMessage">Please insert a post</p>
@@ -22,12 +24,16 @@
     <div id="success" class="successMessage">
         <h2>Congratulations!</h2>
         <p class="message">
-            Your blog has been posted!
+            Your blog has been Edited!
         </p>
         <p>Click below to go back to your blog posts!</p>
         <a href="/index.html">
         <button class="msgButton">Back to Blogs!</button>
         </a>
     </div>
+
+    <script>
+        editPost()
+    </script>
 </body>
 </html>

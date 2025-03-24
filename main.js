@@ -1,7 +1,6 @@
 // Add Homepage with blog listing
 
 function homePage(){
-localStorage.clear()
 const blogContainer = document.getElementById("blogContainer")
 
 if (!localStorage.getItem("blogPosts")){
@@ -39,7 +38,7 @@ function addPostElement(id, title, post){
     newLi.appendChild(newH1)
     newLi.appendChild(newP)
 
-    newA.href = `post/${id}`
+    newA.href = `post.html?id=${id}`
     newA.appendChild(newButton)
     newLi.appendChild(newA)
     
@@ -76,6 +75,7 @@ function newPost() {
     const successMessage = document.getElementById("success")
     const postError = document.getElementById("postError")
     const titleError = document.getElementById("titleError")
+    const homeButton = document.getElementById("goHome")
 
     successMessage.style.display = "none"
 
@@ -120,8 +120,8 @@ function newPost() {
     }
 
 
-
     function post(title, post) {
+        console.log("POST")
         let index = 0
         if(localStorage.getItem("blogPosts")){
             index = JSON.parse(localStorage.getItem("blogPosts")).length
@@ -144,5 +144,38 @@ function newPost() {
         }
     }
 
+    homeButton.addEventListener("click", (e) => {
+        e.preventDefault()
+        window.location.href = "index.html"
+    })
+}
 
+
+// Edit Post.html
+
+function editPost(){
+    // Get ID
+    const url = new URL(window.location.href)
+    const postId = parseInt(url.searchParams.get("id"))
+    
+    console.log(postId)
+
+    // Get blog title and post
+    const blogs = JSON.parse(localStorage.getItem("blogPosts"))
+    console.log(blogs)
+    const currentblog = blogs.filter((blog) => blog.id === postId)
+    console.log(currentblog)
+
+    const currentTitle = currentblog[0].title
+    const currentPost =currentblog[0].post
+    console.log(currentTitle)
+    console.log(currentPost)
+
+    // Get HTML Elements
+    const titleElement = document.getElementById("newTitle")
+    const postElement = document.getElementById("newPost")
+
+    // Fill HTML
+    titleElement.value = currentTitle
+    postElement.value = currentPost
 }
