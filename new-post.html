@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <script defer src="main.js"></script>
+    <script src="main.js"></script>
     <title>New Post</title>
 </head>
 <body>
@@ -14,7 +14,7 @@
         <input type="text" id="newPost" class="postInput" placeholder="Post">
         <div class="buttonContainer">
             <button type="submit">Post</button>
-            <button>Exit</button>
+            <button id="goHome">Exit</button>  
         </div>
     </form>
     <p id="postError" class="errorMessage">Please insert a post</p>
@@ -31,5 +31,8 @@
         </a>
     </div>
     
+    <script>
+        newPost()
+    </script>
 </body>
 </html>

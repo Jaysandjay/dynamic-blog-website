@@ -134,3 +134,20 @@ button:hover{
     cursor: pointer;
     background-color: rgb(16, 16, 236, 0.8);
 }
+
+/* POST */
+.edit {
+    color: white;
+    font-family: "Inter", sans-serif;
+    border-radius: 15px;
+    background-color: rgb(16, 16, 236, 0.8);
+    height: 30px;
+    width: 50px;
+    cursor: pointer;
+}
+
+
+/* EDIT */
+.delete {
+    background-color: red !important;
+}
