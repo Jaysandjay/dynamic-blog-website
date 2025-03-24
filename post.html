@@ -7,13 +7,27 @@
     <title>Post</title>
 </head>
 <body>
-    <h1>Post</h1>
-    <div id="blogContainer" class="blog-posts singlePost">
-        <li class="blog-post">
-           <h1 class="title">asdfsdf</h1>
-           <p class="post">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem fugit praesentium, ea delectus enim deleniti.</p> 
-           <button class="edit">Edit</button>
-        </li>
+    <h1>Edit Post</h1>
+    <form id="form" class="form">
+        <input type="text" id="newTitle" class="titleInput" placeholder="Title">
+        <input type="text" id="newPost" class="postInput" placeholder="Post">
+        <div class="buttonContainer">
+            <button type="submit">Post</button>
+            <button>Exit</button>
+        </div>
+    </form>
+    <p id="postError" class="errorMessage">Please insert a post</p>
+    <p id="titleError" class="errorMessage">Please insert a Title</p>
+
+    <div id="success" class="successMessage">
+        <h2>Congratulations!</h2>
+        <p class="message">
+            Your blog has been posted!
+        </p>
+        <p>Click below to go back to your blog posts!</p>
+        <a href="/index.html">
+        <button class="msgButton">Back to Blogs!</button>
+        </a>
     </div>
 </body>
 </html>
