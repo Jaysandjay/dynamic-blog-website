@@ -239,7 +239,7 @@ function editPost(){
         disableButtons()
     }
 
-    // Delete blog
+    // Delete blog button
     deleteButton.addEventListener("click",(e) => {
         e.preventDefault()
         const index = blogs.findIndex(blog => blog.id === postId)
