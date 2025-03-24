@@ -65,12 +65,6 @@ function addPostElement(id, title, post){
 // Add new post Creation functionality
 
 function newPost() {
-
-    // if (!localStorage.getItem("blogPosts")){
-    //      index = 0
-    // } else{
-    //     index = JSON.parse(localStorage.getItem("blogPosts")).length 
-    // }
     
     const successMessage = document.getElementById("success")
     const postError = document.getElementById("postError")
@@ -79,6 +73,7 @@ function newPost() {
 
     successMessage.style.display = "none"
 
+    // Submit Button
     document.querySelector("form").onsubmit = function(event) {
         event.preventDefault()
 
@@ -119,7 +114,7 @@ function newPost() {
         }
     }
 
-
+    // Post to local storage function
     function post(title, post) {
         console.log("POST")
         let index = 0
@@ -144,6 +139,7 @@ function newPost() {
         }
     }
 
+    // Go Home Button
     homeButton.addEventListener("click", (e) => {
         e.preventDefault()
         window.location.href = "index.html"
@@ -157,8 +153,6 @@ function editPost(){
     // Get ID
     const url = new URL(window.location.href)
     const postId = parseInt(url.searchParams.get("id"))
-    
-    console.log(postId)
 
     // Get blog title and post
     const blogs = JSON.parse(localStorage.getItem("blogPosts"))
@@ -174,8 +168,64 @@ function editPost(){
     // Get HTML Elements
     const titleElement = document.getElementById("newTitle")
     const postElement = document.getElementById("newPost")
+    const successMessage = document.getElementById("success")
+    const postError = document.getElementById("postError")
+    const titleError = document.getElementById("titleError")
+    const homeButton = document.getElementById("goHome")
+
+    successMessage.style.display = "none"
 
     // Fill HTML
     titleElement.value = currentTitle
     postElement.value = currentPost
+
+    // Save Button
+    document.querySelector("form").onsubmit = function(event) {
+        event.preventDefault()
+
+        titleError.style.display = "none"
+        postError.style.display = "none"
+
+        let newTitle = document.getElementById("newTitle").value
+        let newPost = document.getElementById("newPost").value
+
+        titlevalidated = validateTitle(newTitle)
+        postvalidated = validatePost(newPost)
+
+        if(titlevalidated && postvalidated){
+            replace(newTitle, newPost)
+            successMessage.style.display = "block"
+        }
+    }
+
+    // Validation functions
+    function validateTitle(title) {
+        if(title.trim() === ""){
+            titleError.style.display = "block"
+            return false
+        } else {
+            titleError.style.display = "none"
+            return true
+        }
+    }
+
+
+    function validatePost(post) {
+        if(post.trim() === ""){
+            postError.style.display = "block"
+            return false
+        } else {
+            postError.style.display = "none"
+            return true
+        }
+    }
+
+    function replace(title, post) {
+        console.log("REPLACE")
+        const index = blogs.findIndex(blog => blog.id === postId)
+        blogs[index].title = title
+        blogs[index].post = post
+        localStorage.setItem("blogPosts", JSON.stringify(blogs))
+
+    }
 }
