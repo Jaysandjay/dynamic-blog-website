@@ -171,11 +171,13 @@ function editPost(){
     const successMessage = document.getElementById("success")
     const postError = document.getElementById("postError")
     const titleError = document.getElementById("titleError")
+    const saveButton = document.getElementById("save")
     const homeButton = document.getElementById("goHome")
     const deleteButton = document.getElementById("delete")
     const messageMethod = document.getElementById("method")
 
     successMessage.style.display = "none"
+    enableButtons()
 
     // Fill HTML
     titleElement.value = currentTitle
@@ -229,6 +231,7 @@ function editPost(){
         localStorage.setItem("blogPosts", JSON.stringify(blogs))
         messageMethod.innerHTML = "Edited"
         successMessage.style.display = "block"
+        disableButtons()
     }
 
     // Delete blog
@@ -239,6 +242,7 @@ function editPost(){
         localStorage.setItem("blogPosts", JSON.stringify(blogs))
         messageMethod.innerHTML = "Deleted"
         successMessage.style.display = "block"
+        disableButtons()
     })
 
     // Go Home Button
@@ -246,4 +250,18 @@ function editPost(){
         e.preventDefault()
         window.location.href = "index.html"
     })
+
+    // Enable Buttons
+    function enableButtons(){
+        saveButton.disabled = false
+        deleteButton.disabled = false
+        homeButton.disabled = false
+    }
+
+    // Disable Buttons
+    function disableButtons(){
+        saveButton.disabled = true
+        deleteButton.disabled = true
+        homeButton.disabled = true
+    }
 }
