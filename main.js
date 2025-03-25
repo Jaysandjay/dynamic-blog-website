@@ -40,7 +40,7 @@ function homePage() {
     newLi.appendChild(newH1);
     newLi.appendChild(newP);
 
-    newA.href = `./pages/post.html?id=${id}`;
+    newA.href = `/pages/post.html?id=${id}`;
     newLi.appendChild(newA);
 
     newLi.classList.add("blog-post");
