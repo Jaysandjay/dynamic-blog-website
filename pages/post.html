@@ -3,41 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="laptopSize.css">
-    <link rel="stylesheet" href="phoneSizes.css"/>
-    <script src="main.js"></script>
-    <title>New Post</title>
+    <link rel="stylesheet" href="../css/styles.css"/>
+    <link rel="stylesheet" href="../css/laptopSize.css"/>
+    <link rel="stylesheet" href="../css/phoneSizes.css"/>
+    <script src="../main.js"></script>
+    <title>Post</title>
 </head>
 <body>
-    <h1>New Post</h1>
+    <h1>Edit Post</h1>
     <form id="form" class="form">
         <input type="text" id="newTitle" class="titleInput" placeholder="Title">
         <textarea type="text" id="newPost" class="postInput" placeholder="Post"></textarea>
         <div class="buttonContainer">
-            <button type="submit">Post</button>
-            <button id="goHome">Exit</button>  
+            <button id="save" type="submit">Save</button>
+            <button id="delete" class="delete" type="button">Delete</button>
+            <button id="goHome" type="button">Exit</button>
         </div>
     </form>
-    <div class="errorContainer">
-        <p id="postError" class="errorMessage">Please insert a post</p>
-        <p id="titleError" class="errorMessage">Please insert a Title</p>
-    </div>
-    
+    <p id="postError" class="errorMessage">Please insert a post</p>
+    <p id="titleError" class="errorMessage">Please insert a Title</p>
 
     <div id="success" class="successMessage">
         <h2>Congratulations!</h2>
         <p class="message">
-            Your blog has been posted!
+            Your blog has been <span id="method"></span>!
         </p>
         <p>Click below to go back to your blog posts!</p>
         <a href="/index.html">
         <button class="msgButton">Back to Blogs!</button>
         </a>
     </div>
-    
+
     <script>
-        newPost()
+        editPost()
     </script>
 </body>
 </html>
