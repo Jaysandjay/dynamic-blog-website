@@ -1,5 +1,5 @@
 /* Phone */
-@media only screen and (max-width: 450px) and (max-height: 950px ){
+@media only screen and (max-width: 1040px) and (max-height: 1366px ){
     h1{
         position: static;
         margin: auto;
@@ -16,7 +16,6 @@
         width: fit-content;
         height: fit-content;
     }
-
 
     .newPostButton{
         box-sizing: border-box;
@@ -46,4 +45,5 @@
         width: 95%; 
     }
 }
+
 
