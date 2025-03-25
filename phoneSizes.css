@@ -1,49 +1,47 @@
 /* Phone */
-@media only screen and (max-width: 1040px) and (max-height: 1366px ){
-    h1{
-        position: static;
-        margin: auto;
-        width: fit-content;
-        height:fit-content;
-        padding-top: 10px;
-        padding-bottom: 20px;
-    }
+@media only screen and (max-width: 1040px) and (max-height: 1366px) {
+  h1 {
+    position: static;
+    margin: auto;
+    width: fit-content;
+    height: fit-content;
+    padding-top: 10px;
+    padding-bottom: 20px;
+  }
 
-    #addPost{
-        display: block;
-        position: static;
-        margin: auto;
-        width: fit-content;
-        height: fit-content;
-    }
+  #addPost {
+    display: block;
+    position: static;
+    margin: auto;
+    width: fit-content;
+    height: fit-content;
+  }
 
-    .newPostButton{
-        box-sizing: border-box;
-        position: static;
-        margin: auto;
-        background-color:  rgb(16, 16, 236);
-        height: 50px;
-        width: 150px;
-        font-size: 20px;
-        border: none;
-        color: white;
-        padding: 10px 20px;
-        text-align: center;
-        border-radius: 50px; 
-        padding: 10px 20px; 
-        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-        transition: transform 0.3s;
-        cursor: pointer;
-    }
+  .newPostButton {
+    box-sizing: border-box;
+    position: static;
+    margin: auto;
+    background-color: rgb(16, 16, 236);
+    height: 50px;
+    width: 150px;
+    font-size: 20px;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    border-radius: 50px;
+    padding: 10px 20px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transition: transform 0.3s;
+    cursor: pointer;
+  }
 
-    .blog-posts{
-        box-sizing: border-box;
-        margin: auto;
-        padding-top: 40px;
-        display: flex;
-        flex-direction: column;
-        width: 95%; 
-    }
+  .blog-posts {
+    box-sizing: border-box;
+    margin: auto;
+    padding-top: 40px;
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+  }
 }
-
-
