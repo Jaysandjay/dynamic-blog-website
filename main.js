@@ -240,7 +240,7 @@ function editPost() {
   // Go Home Button
   homeButton.addEventListener("click", (e) => {
     e.preventDefault();
-    window.location.href = "index.html";
+    window.location.href = "../index.html";
   });
 
   // Enable Buttons
