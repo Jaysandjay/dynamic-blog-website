@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Winky+Sans:ital,wght@0,300..900;1,300..900&display=swap');
 html, body{
-    min-height: 10vh;
+    min-height: 100vh;
     min-width: 100vw;
     font-family: "Inter", sans-serif;
     background-color: rgb(243, 243, 248);
@@ -59,6 +59,10 @@ h1{
 /* FORM */
 
 .form{
+    position:absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     margin: auto;
     box-sizing: border-box;
     width: 700px;
@@ -115,6 +119,10 @@ input:hover{
 
 button:hover{
     transform: scale(1.05);   
+}
+
+.errorContainer{
+    margin-top: 80px;
 }
 
 .errorMessage{

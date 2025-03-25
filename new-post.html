@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="laptopSize.css">
     <script src="main.js"></script>
     <title>New Post</title>
 </head>
@@ -17,8 +18,11 @@
             <button id="goHome">Exit</button>  
         </div>
     </form>
-    <p id="postError" class="errorMessage">Please insert a post</p>
-    <p id="titleError" class="errorMessage">Please insert a Title</p>
+    <div class="errorContainer">
+        <p id="postError" class="errorMessage">Please insert a post</p>
+        <p id="titleError" class="errorMessage">Please insert a Title</p>
+    </div>
+    
 
     <div id="success" class="successMessage">
         <h2>Congratulations!</h2>
