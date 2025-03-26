@@ -66,13 +66,14 @@ function newPost() {
   const postError = document.getElementById("postError");
   const titleError = document.getElementById("titleError");
   const homeButton = document.getElementById("goHome");
+  const postButton = document.getElementById("post")
 
   successMessage.style.display = "none";
 
   // Submit Button
   document.querySelector("form").onsubmit = function (event) {
     event.preventDefault();
-
+    enableButtons()
     titleError.style.display = "none";
     postError.style.display = "none";
 
@@ -85,6 +86,7 @@ function newPost() {
     if (titlevalidated && postvalidated) {
       post(newTitle, newPost);
       successMessage.style.display = "block";
+      disableButtons()
     }
   };
 
@@ -138,6 +140,18 @@ function newPost() {
     e.preventDefault();
     window.location.href = "../index.html";
   });
+
+  // Enable Buttons
+  function enableButtons() {
+    postButton.disabled = false;
+    homeButton.disabled = false;
+  }
+
+  // Disable Buttons
+  function disableButtons() {
+    postButton.disabled = true;
+    homeButton.disabled = true;
+  }
 }
 
 // Edit Post.html
